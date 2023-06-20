@@ -67,11 +67,22 @@ The backend API provides the following endpoints:
 - Method: GET
 - Description: Retrieves the details of the currently authenticated user profile.
 
+#### Update User Profile
+
+- URL: `/api/v1/profile/`
+- Method: PUT
+- Request Body:
+  - `username` 
+  - `email` 
+  - `passowrd` 
+  - `calories` 
+- Description: Updates the details of the currently authenticated user profile. Note - Role can not be modified.
+
 #### Get All Entries
 
 - URL: `/api/v1/tracker/entries/all/`
 - Method: GET
-- Description: Retrieves all entries for all users (accessible only to users with the "admin" or "user_manager" role).
+- Description: Retrieves all entries for all users (accessible only to users with the "admin" role).
 - Response: Returns a list of entries.
 
 #### Get All Users
@@ -93,7 +104,7 @@ The backend API provides the following endpoints:
 - URL: `/api/v1/users/<int:pk>/`
 - Method: PUT
 - Description: Updates the details of a specific user (accessible only to users with the "admin" or "user_manager" role).
-- Request Body: Same as the Register User endpoint.
+- Request Body: Same as the Register User endpoint. Role can changed but password cannot be modified.
 - Response: Returns the updated user details.
 
 #### Delete User
